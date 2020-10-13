@@ -1,0 +1,51 @@
+<ion-header >
+  <ion-toolbar color = "primary">
+    <ion-title>ToDo</ion-title>
+    <ion-buttons slot="end" >
+      <ion-button (click)= "openTodoAlert()">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list >
+  <ion-item-sliding *ngFor='let todo of todos; let todoIndex = index'>
+    <ion-item>{{ todo }}</ion-item>
+    
+    <ion-item-options side="start">
+      <ion-button  (click) = "editTodo(todoIndex)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-item-options>
+
+
+
+    <ion-item-options side="end">
+      <ion-button color="danger" (click) = "archiveTodo(todoIndex)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click) = "shareActivity()">
+    <ion-icon name="grid-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click) = "gotoArchivePage()">
+      <ion-icon name="archive"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+
+
+</ion-content>
